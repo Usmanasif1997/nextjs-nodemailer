@@ -20,13 +20,13 @@ export default function Home() {
       },
       body: JSON.stringify(data),
     }).then((res) => {
-      console.log("Response received"),console.log(res);
+      console.log("Response received", res);
       if (res.status === 200) {
         console.log("Response succeeded!");
       } else {
         console.log("data invalid");
       }
-    });
+    }).catch(e => console.log(e));
   };
 
   // console.log("contact Detail", contactDetail);
