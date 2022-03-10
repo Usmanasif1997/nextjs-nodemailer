@@ -20,7 +20,7 @@ export default function Home() {
       },
       body: JSON.stringify(data),
     }).then((res) => {
-      console.log("Response received");
+      console.log("Response received"),console.log(res);
       if (res.status === 200) {
         console.log("Response succeeded!");
       } else {
