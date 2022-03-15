@@ -6,7 +6,7 @@ export default async function (req, res) {
     port: 465,
     host: "smtp.gmail.com",
     auth: {
-      user: "usmanasifdev@gmail.com",
+      user: process.env.email,
       pass: process.env.password,
     },
     secure: true,
@@ -16,7 +16,16 @@ export default async function (req, res) {
     to: "jusmanasif435@gmail.com",
     subject: `Message From Usman Asif Dev`,
     //   text: req.body.message + " | Sent from: " + req.body.email,
-    html: `<div>${req.body.message}</div><p>Sent from:
+    html: `
+    <div><strong>Name:</strong> ${req.body.fullName}</div>
+    <br/>
+    <div><strong>Email:</strong> ${req.body.email}</div>
+    <br/>
+    <div><strong>Phone:</strong> ${req.body.phone}</div>
+    <br/>
+    <div><strong>Message:</strong> ${req.body.message}</div>
+    <br/>
+    <p>Sent from:
       ${req.body.email}</p>`,
   };
   await new Promise((resolve, reject) => {
